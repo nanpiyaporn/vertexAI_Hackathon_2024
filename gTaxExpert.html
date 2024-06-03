@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        #chatbox {
-            width: 300px;
-            height: 400px;
-            border: 1px solid #000;
-            padding: 10px;
-            overflow-y: scroll;
-        }
-        #userInput {
-            width: 300px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>My chat</title>
+  <style>
+    df-messenger {
+      /*
+       * Customize as required. df-messenger will fill the
+       * space that is provided.
+      */
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 320px;
+    }
+  </style>
+  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
 </head>
 <body>
-    <div id="chatbox">
-        <!-- Chat messages will be appended here -->
-    </div>
-    <input id="userInput" type="text" placeholder="Type a message...">
-    <button id="sendButton">Send</button>
+<df-messenger
+    location="global" <!-- TODO: update agent location as needed -->
+    project-id="my-project-id" <!-- TODO: update project ID -->
+    agent-id="my-agent-id" <!-- TODO: update agent ID -->
+    language-code="en" <!-- TODO: update agent language as needed -->
+>
+  <df-messenger-chat
+      chat-title="Agent Name" <!-- TODO: update dialog title as needed -->
+  ></df-messenger-chat>
+</df-messenger>
 
-    <script>
-        document.getElementById('sendButton').addEventListener('click', function() {
-            var userInput = document.getElementById('userInput').value;
-            var chatbox = document.getElementById('chatbox');
-            chatbox.innerHTML += '<p>You: ' + userInput + '</p>';
-            // TODO: Add chatbot response logic here
-            document.getElementById('userInput').value = '';
-        });
-    </script>
+<script>
+  // An example of handling events: Navigate to the first suggested URL.
+  document.addEventListener('df-url-suggested', (event) => {
+    if (Array.isArray(event.detail.suggestedUrls) &&
+      event.detail.suggestedUrls.length) {
+      window.location.href = event.detail.suggestedUrls[0];
+  }
+});
+</script>
 </body>
 </html>
