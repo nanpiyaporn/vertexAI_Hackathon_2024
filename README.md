@@ -47,8 +47,7 @@ To integrate my application's frontend with the backend services, I plan to util
 
 Here's a walkthrough of implemented user stories:
 
-![final](https://youtu.be/JINwYA0z1v0){width=50%}
-
+[![YouTube Linked](https://github.com/nanpiyaporn/vertexAI_Hackathon_2024/blob/main/googleTax22_23expert/src/assets/HackathonVertexAI2024.png)](https://youtu.be/JINwYA0z1v0)
 
 ## License
 
